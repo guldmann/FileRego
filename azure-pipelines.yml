@@ -31,3 +31,26 @@ steps:
   inputs:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+
+- task: VSTest@3
+  inputs:
+    testSelector: 'testAssemblies'
+    testAssemblyVer2: '**\*Tests*.dll
+      !**\*TestAdapter.dll
+      !**\obj\**'
+    searchFolder: '$(System.DefaultWorkingDirectory)'
+    codeCoverageEnabled: true
+    diagnosticsEnabled: true
+    rerunFailedTests: false
+
+- task: PublishGitHubRelease@0
+    inputs:
+      applicationName: 'FileRego'
+      gitSourceOption: 'github'
+      token: '9bb10cd2f802826e445e153560f34fa34f356bc2'
+      repo: 'guldmann.FileRego'
+      owner: 'guldmann'
+      tagName: 'test'
+      releaseName: 'test'
+      draft: true
+      prerelease: false
