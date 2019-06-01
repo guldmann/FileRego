@@ -32,3 +32,16 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
+- task: GitHubReleasePublish@1
+  inputs:
+    githubEndpoint: 'guldmann'
+    manuallySetRepository: false
+    githubReleaseDraft: true
+    githubReleasePrerelease: false
+    githubIgnoreAssets: false
+    githubReuseRelease: true
+    githubReuseDraftOnly: true
+    githubSkipDuplicatedAssets: false
+    githubEditRelease: false
+    githubDeleteEmptyTag: false
+
