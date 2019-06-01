@@ -58,7 +58,6 @@
     <Compile Include="Rules\Delete\DeleteFromPosition.cs" />
     <Compile Include="Rules\Delete\DeleteTextRule.cs" />
     <Compile Include="Rules\Delete\DeleteToDelimiter.cs" />
-    <Compile Include="Rules\EnumToPosision.cs" />
     <Compile Include="Rules\RuleHelper.cs" />
     <Compile Include="Rules\RuleType.cs" />
     <EmbeddedResource Include="FormMain.resx">

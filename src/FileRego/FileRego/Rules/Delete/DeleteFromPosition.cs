@@ -24,5 +24,40 @@
             }
             return fileName + extension;
         }
+
+        public static string DeleteFromPositionToTheEnd(
+            this string fileName,
+            int fromPosition,
+            bool skipExtension = true)
+        {
+            if (string.IsNullOrEmpty(fileName)) return fileName;
+
+            var extension = "";
+            if (skipExtension)
+            {
+                fileName = fileName.SplitExtension(out extension);
+            }
+            return fileName.Substring(0, fromPosition) + extension;
+        }
+
+        public static string DeleteFromPositionToCount(
+            this string fileName,
+            int fromPosition,
+            int numChar,
+            bool skipExtension)
+        {
+            if (string.IsNullOrEmpty(fileName)) return null;
+            if (fromPosition + numChar > fileName.Length) return fileName;
+
+            var extension = "";
+            if (skipExtension)
+            {
+                fileName = fileName.SplitExtension(out extension);
+            }
+
+            var firstPart = fileName.Substring(0, fromPosition);
+
+            return firstPart + fileName.Substring(fromPosition + numChar) + extension;
+        }
     }
 }
