@@ -13,6 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Controls", "Controls", "{87
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaseControl", "BaseControl\BaseControl.csproj", "{37A9A23B-4ED9-469B-A387-2321306FC3D5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeleteRule", "DeleteRule\DeleteRule.csproj", "{55FA853A-B3C2-423B-84E6-2FD8710ADBF4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{37A9A23B-4ED9-469B-A387-2321306FC3D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{37A9A23B-4ED9-469B-A387-2321306FC3D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{37A9A23B-4ED9-469B-A387-2321306FC3D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55FA853A-B3C2-423B-84E6-2FD8710ADBF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55FA853A-B3C2-423B-84E6-2FD8710ADBF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55FA853A-B3C2-423B-84E6-2FD8710ADBF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55FA853A-B3C2-423B-84E6-2FD8710ADBF4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -35,6 +41,7 @@ Global
 		{E9E9C344-F858-4D91-9663-097B75B4F4B6} = {D89BE92F-6783-4D90-BDE6-D6ACDD166F41}
 		{879CF880-0F09-4974-9EDB-B3C8F1EC3A96} = {D89BE92F-6783-4D90-BDE6-D6ACDD166F41}
 		{37A9A23B-4ED9-469B-A387-2321306FC3D5} = {879CF880-0F09-4974-9EDB-B3C8F1EC3A96}
+		{55FA853A-B3C2-423B-84E6-2FD8710ADBF4} = {E1881D50-7C8F-4351-BE50-86BAF33B276F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {64848B91-4916-4A22-8B8F-D11F07936BA1}
