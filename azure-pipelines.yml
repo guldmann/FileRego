@@ -17,12 +17,15 @@ variables:
 steps:
 - task: NuGetToolInstaller@0
 
-
- 
 - task: MSBuild@1
   inputs:
-    solution: 'FileRego/src/FileRego/FileRego.sln'
+    solution: '**/*.sln'
     msbuildArchitecture: 'x64'
+    restoreNugetPackages: true
+    logProjectEvents: true
+    createLogFile: true
+    logFileVerbosity: 'detailed'
+ 
 
 #- task: NuGetCommand@2
 #  inputs:
