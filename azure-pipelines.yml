@@ -42,15 +42,3 @@ steps:
     codeCoverageEnabled: true
     diagnosticsEnabled: true
     rerunFailedTests: false
-
-- task: PublishGitHubRelease@6
-  inputs:
-    applicationName: 'FileRego'
-    gitSourceOption: 'github'
-    token: '9bb10cd2f802826e445e153560f34fa34f356bc2'
-    repo: 'guldmann.FileRego'
-    owner: 'guldmann'
-    tagName: 'test'
-    releaseName: 'test'
-    draft: true
-    prerelease: false
