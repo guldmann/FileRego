@@ -17,6 +17,8 @@ variables:
 steps:
 - task: NuGetToolInstaller@0
 
+
+
 - task: MSBuild@1
   inputs:
     solution: '**/*.sln'
@@ -26,6 +28,15 @@ steps:
     createLogFile: true
     logFileVerbosity: 'detailed'
  
+- task: VSTest@2
+  inputs:
+    testSelector: 'testAssemblies'
+    testAssemblyVer2: '**\*tests*.dll
+      !**\*TestAdapter.dll
+      !**\obj\**'
+    searchFolder: '$(System.DefaultWorkingDirectory)'
+    codeCoverageEnabled: true
+    diagnosticsEnabled: true
 
 #- task: NuGetCommand@2
 #  inputs:
