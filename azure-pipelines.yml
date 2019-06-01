@@ -1,0 +1,78 @@
+# .NET Desktop
+# Build and run tests for .NET Desktop or Windows classic desktop solutions.
+# Add steps that publish symbols, save build artifacts, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/apps/windows/dot-net
+
+trigger:
+- master
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+  solution: '**/*.sln'
+  buildPlatform: 'Any CPU'
+  buildConfiguration: 'Release'
+
+steps:
+- task: NuGetToolInstaller@0
+
+
+
+- task: MSBuild@1
+  inputs:
+    solution: '**/*.sln'
+    msbuildArchitecture: 'x64'
+    restoreNugetPackages: true
+    logProjectEvents: true
+    createLogFile: true
+    logFileVerbosity: 'detailed'
+ 
+- task: VSTest@2
+  inputs:
+    testSelector: 'testAssemblies'
+    testAssemblyVer2: '**\*tests*.dll
+      !**\*TestAdapter.dll
+      !**\obj\**'
+    searchFolder: '$(System.DefaultWorkingDirectory)'
+    codeCoverageEnabled: true
+    diagnosticsEnabled: true
+
+#- task: NuGetCommand@2
+#  inputs:
+#    restoreSolution: '$(solution)'
+
+#- task: VSBuild@1
+#  inputs:
+#    solution: '$(solution)'
+#    platform: '$(buildPlatform)'
+#    configuration: '$(buildConfiguration)'
+
+#- task: VSTest@2
+#  inputs:
+#    platform: '$(buildPlatform)'
+#    configuration: '$(buildConfiguration)'
+
+#- task: ArchiveFiles@2
+#  inputs:
+#    rootFolderOrFile: '$(Build.BinariesDirectory)'
+#    includeRootFolder: true
+#    archiveType: 'zip'
+#    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+#    replaceExistingArchive: true
+
+#- task: GitHubReleasePublish@1
+#  inputs:
+#    githubEndpoint: 'guldmann'
+#    manuallySetRepository: true
+#    githubOwner: 'guldmann'
+#    githubRepositoryName: 'FileRego'
+#    githubReleaseDraft: true
+#    githubReleasePrerelease: true
+#    githubIgnoreAssets: false
+#    githubReleaseAsset: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+#    githubReuseRelease: true
+#    githubReuseDraftOnly: true
+#    githubSkipDuplicatedAssets: false
+#    githubEditRelease: false
+#    githubDeleteEmptyTag: false
