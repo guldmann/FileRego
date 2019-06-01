@@ -17,41 +17,48 @@ variables:
 steps:
 - task: NuGetToolInstaller@0
 
-- task: NuGetCommand@2
-  inputs:
-    restoreSolution: '$(solution)'
 
-- task: VSBuild@1
+ 
+- task: MSBuild@1
   inputs:
-    solution: '$(solution)'
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
+    solution: 'FileRego/src/FileRego/FileRego.sln'
+    msbuildArchitecture: 'x64'
 
-- task: VSTest@2
-  inputs:
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
+#- task: NuGetCommand@2
+#  inputs:
+#    restoreSolution: '$(solution)'
 
-- task: ArchiveFiles@2
-  inputs:
-    rootFolderOrFile: '$(Build.BinariesDirectory)'
-    includeRootFolder: true
-    archiveType: 'zip'
-    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
-    replaceExistingArchive: true
+#- task: VSBuild@1
+#  inputs:
+#    solution: '$(solution)'
+#    platform: '$(buildPlatform)'
+#    configuration: '$(buildConfiguration)'
 
-- task: GitHubReleasePublish@1
-  inputs:
-    githubEndpoint: 'guldmann'
-    manuallySetRepository: true
-    githubOwner: 'guldmann'
-    githubRepositoryName: 'FileRego'
-    githubReleaseDraft: true
-    githubReleasePrerelease: true
-    githubIgnoreAssets: false
-    githubReleaseAsset: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
-    githubReuseRelease: true
-    githubReuseDraftOnly: true
-    githubSkipDuplicatedAssets: false
-    githubEditRelease: false
-    githubDeleteEmptyTag: false
+#- task: VSTest@2
+#  inputs:
+#    platform: '$(buildPlatform)'
+#    configuration: '$(buildConfiguration)'
+
+#- task: ArchiveFiles@2
+#  inputs:
+#    rootFolderOrFile: '$(Build.BinariesDirectory)'
+#    includeRootFolder: true
+#    archiveType: 'zip'
+#    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+#    replaceExistingArchive: true
+
+#- task: GitHubReleasePublish@1
+#  inputs:
+#    githubEndpoint: 'guldmann'
+#    manuallySetRepository: true
+#    githubOwner: 'guldmann'
+#    githubRepositoryName: 'FileRego'
+#    githubReleaseDraft: true
+#    githubReleasePrerelease: true
+#    githubIgnoreAssets: false
+#    githubReleaseAsset: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+#    githubReuseRelease: true
+#    githubReuseDraftOnly: true
+#    githubSkipDuplicatedAssets: false
+#    githubEditRelease: false
+#    githubDeleteEmptyTag: false
