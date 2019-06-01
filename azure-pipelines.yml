@@ -32,16 +32,26 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
+- task: ArchiveFiles@2
+  inputs:
+    rootFolderOrFile: '$(Build.BinariesDirectory)'
+    includeRootFolder: true
+    archiveType: 'zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+    replaceExistingArchive: true
+
 - task: GitHubReleasePublish@1
   inputs:
     githubEndpoint: 'guldmann'
-    manuallySetRepository: false
+    manuallySetRepository: true
+    githubOwner: 'guldmann'
+    githubRepositoryName: 'FileRego'
     githubReleaseDraft: true
-    githubReleasePrerelease: false
+    githubReleasePrerelease: true
     githubIgnoreAssets: false
+    githubReleaseAsset: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
     githubReuseRelease: true
     githubReuseDraftOnly: true
     githubSkipDuplicatedAssets: false
     githubEditRelease: false
     githubDeleteEmptyTag: false
-
