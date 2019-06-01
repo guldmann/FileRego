@@ -18,35 +18,15 @@ steps:
 - task: NuGetToolInstaller@0
 
 
-
-- task: MSBuild@1
+- task: NuGetCommand@2
   inputs:
-    solution: '**/*.sln'
-    msbuildArchitecture: 'x64'
-    restoreNugetPackages: true
-    logProjectEvents: true
-    createLogFile: true
-    logFileVerbosity: 'detailed'
- 
-- task: VSTest@2
+    restoreSolution: '$(solution)'
+
+- task: VSBuild@1
   inputs:
-    testSelector: 'testAssemblies'
-    testAssemblyVer2: '**\*tests*.dll
-      !**\*TestAdapter.dll
-      !**\obj\**'
-    searchFolder: '$(System.DefaultWorkingDirectory)'
-    codeCoverageEnabled: true
-    diagnosticsEnabled: true
-
-#- task: NuGetCommand@2
-#  inputs:
-#    restoreSolution: '$(solution)'
-
-#- task: VSBuild@1
-#  inputs:
-#    solution: '$(solution)'
-#    platform: '$(buildPlatform)'
-#    configuration: '$(buildConfiguration)'
+    solution: '$(solution)'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
 
 #- task: VSTest@2
 #  inputs:
