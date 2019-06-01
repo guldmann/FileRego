@@ -55,7 +55,11 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rules\BaseRule.cs" />
-    <Compile Include="Rules\DeleteTextRule.cs" />
+    <Compile Include="Rules\Delete\DeleteFromPosition.cs" />
+    <Compile Include="Rules\Delete\DeleteTextRule.cs" />
+    <Compile Include="Rules\Delete\DeleteToDelimiter.cs" />
+    <Compile Include="Rules\EnumToPosision.cs" />
+    <Compile Include="Rules\RuleHelper.cs" />
     <Compile Include="Rules\RuleType.cs" />
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
@@ -82,8 +86,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Rules\NewFolder1\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

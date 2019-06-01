@@ -29,6 +29,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -51,6 +52,8 @@
   <ItemGroup>
     <Compile Include="DeleteTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DeleteFromPositionTest.cs" />
+    <Compile Include="DeleteFromPositionToDelimiterTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
