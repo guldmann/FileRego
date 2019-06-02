@@ -61,6 +61,7 @@ namespace DeleteRule
             //Assert
             Assert.AreEqual(expected, result);
         }
+
         [TestMethod]
         public void When_delete_fromPositioin_to_end_and_extension_is_not_skiped_correct_data_is_returned()
         {
@@ -74,5 +75,48 @@ namespace DeleteRule
             //Assert
             Assert.AreEqual(expected, result);
         }
+
+        [TestMethod]
+        public void When_delete_fromPositioin_to_count_and_extension_is_not_skiped_correct_data_is_returned()
+        {
+            //Arrange
+            const string fileName = "TheFileName.txt";
+            const string expected = "Thext";
+
+            //Act
+            var result = fileName.DeleteFromPositionToCount(3, 10,false);
+
+            //Assert
+            Assert.AreEqual(expected, result);
+        }
+
+        [TestMethod]
+        public void When_delete_fromPositioin_to_count_and_extension_is_skiped_correct_data_is_returned()
+        {
+            //Arrange
+            const string fileName = "TheFileName.txt";
+            const string expected = "TheName.txt";
+
+            //Act
+            var result = fileName.DeleteFromPositionToCount(3, 4);
+
+            //Assert
+            Assert.AreEqual(expected, result);
+        }
+
+        [TestMethod]
+        public void When_delete_fromPositioin_to_count_is_longer_then_string_original_string_is_retuned()
+        {
+            //Arrange
+            const string fileName = "TheFileName.txt";
+            const string expected = "TheFileName.txt";
+
+            //Act
+            var result = fileName.DeleteFromPositionToCount(10,10);
+
+            //Assert
+            Assert.AreEqual(expected, result);
+        }
+
     }
 }

@@ -44,7 +44,7 @@
             this string fileName,
             int fromPosition,
             int numChar,
-            bool skipExtension)
+            bool skipExtension = true)
         {
             if (string.IsNullOrEmpty(fileName)) return null;
             if (fromPosition + numChar > fileName.Length) return fileName;
@@ -53,6 +53,7 @@
             if (skipExtension)
             {
                 fileName = fileName.SplitExtension(out extension);
+                if (fromPosition + numChar > fileName.Length) return fileName;
             }
 
             var firstPart = fileName.Substring(0, fromPosition);
