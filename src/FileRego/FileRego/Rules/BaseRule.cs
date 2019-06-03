@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FileRego.Rules
 {
@@ -14,7 +10,7 @@ namespace FileRego.Rules
 
         public string Text { get; set; }
 
-        private BaseRule()
+        public BaseRule()
         {
             if (Index == Guid.Empty)
             {
@@ -30,17 +26,19 @@ namespace FileRego.Rules
             if (ReferenceEquals(null, other)) return false;
             if (other.Index == Index) return true;
             if (other.Index != Index) return false;
-            if (ReferenceEquals(this, other)) return true;
-            return Equals(Type, other.Type) && Active == other.Active && string.Equals(Text, other.Text);
-
+            return ReferenceEquals(this, other) || (Equals(Type, other.Type)
+                   && Active
+                   == other.Active
+                   && string.Equals(Text, other.Text));
         }
+
         public override bool Equals(object obj)
         {
-
-            if (ReferenceEquals(null, obj)) return false;
-            if (ReferenceEquals(this, obj)) return true;
-            if (obj.GetType() != GetType()) return false;
-            return Equals((BaseRule)obj);
+            return !ReferenceEquals(null, obj)
+                   && (ReferenceEquals(this, obj)
+                   || (obj.GetType()
+                   == GetType()
+                   && Equals((BaseRule)obj)));
         }
 
         public object Clone()

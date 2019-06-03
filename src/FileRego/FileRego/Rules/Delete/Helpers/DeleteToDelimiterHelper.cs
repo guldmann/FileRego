@@ -1,7 +1,9 @@
 ﻿
-namespace FileRego.Rules.Delete
+using System;
+
+namespace FileRego.Rules.Delete.Helpers
 {
-    public static class DeleteToDelimiterRule
+    public static class DeleteToDelimiterHelper
     {
         public static string DeleteFromPositionToDelimiter(
             this string text,

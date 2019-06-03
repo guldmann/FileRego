@@ -1,5 +1,6 @@
 ﻿using System;
 using FileRego.Rules.Delete;
+using FileRego.Rules.Delete.Helpers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace DeleteRule

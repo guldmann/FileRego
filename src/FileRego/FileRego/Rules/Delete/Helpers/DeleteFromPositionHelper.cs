@@ -1,6 +1,6 @@
-﻿namespace FileRego.Rules.Delete
+﻿namespace FileRego.Rules.Delete.Helpers
 {
-    public static class DeleteFromPositionRule
+    public static class DeleteFromPositionHelper
     {
         public static string DeleteFromToPosition(
             this string fileName,
@@ -16,11 +16,9 @@
             if (toPosition > fromPosition && toPosition < fileName.Length)
             {
                 var firstPart = fileName.Substring(0, fromPosition);
-                if (toPosition > fileName.Length && fromPosition + toPosition > fileName.Length)
-                {
-                    return firstPart + extension;
-                }
-                return firstPart + fileName.Substring(toPosition) + extension;
+                return toPosition > fileName.Length && fromPosition + toPosition > fileName.Length
+                    ? firstPart + extension
+                    : firstPart + fileName.Substring(toPosition) + extension;
             }
             return fileName + extension;
         }

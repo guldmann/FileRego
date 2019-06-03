@@ -1,7 +1,7 @@
 ﻿//TODO: Implement casesensitive
 namespace FileRego.Rules.Delete
 {
-    public static class DeleteTextRule
+    public static class DeleteTextHelper
     {
         public static string DeleteText(
             this string fileName,
